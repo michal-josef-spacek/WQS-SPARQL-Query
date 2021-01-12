@@ -1,0 +1,27 @@
+NAME
+    Wikibase::WQS::SPARQL::Query - Usefull Wikdata Query Service SPARQL
+    queries.
+
+DESCRIPTION
+    This distributions is set of datatypes for Wikibase.
+
+SEE ALSO
+    Wikibase::WQS::SPARQL::Query::Count
+        TODO
+
+REPOSITORY
+    <https://github.com/michal-josef-spacek/Wikibase-WQS-SPARQL-Query>
+
+AUTHOR
+    Michal Josef Špaček <mailto:skim@cpan.org>
+
+    <http://skim.cz>
+
+LICENSE AND COPYRIGHT
+    © Michal Josef Špaček 2020
+
+    BSD 2-Clause License
+
+VERSION
+    0.01
+
