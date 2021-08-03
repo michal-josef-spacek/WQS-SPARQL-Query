@@ -117,7 +117,7 @@ L<Error::Pure>.
 
 =item L<Wikibase::WQS::SPARQL::Query>
 
-Usefull Wikdata Query Service SPARQL queries.
+Useful Wikdata Query Service SPARQL queries.
 
 =back
 

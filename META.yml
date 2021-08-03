@@ -1,5 +1,5 @@
 ---
-abstract: 'Usefull Wikidata Query Service SPARQL queries.'
+abstract: 'Useful Wikidata Query Service SPARQL queries.'
 author:
   - 'Michal Josef Spacek <skim@cpan.org>'
 build_requires:

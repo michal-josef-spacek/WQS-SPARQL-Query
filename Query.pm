@@ -15,7 +15,7 @@ __END__
 
 =head1 NAME
 
-Wikibase::WQS::SPARQL::Query - Usefull Wikdata Query Service SPARQL queries.
+Wikibase::WQS::SPARQL::Query - Useful Wikdata Query Service SPARQL queries.
 
 =head1 DESCRIPTION
 
