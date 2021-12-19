@@ -9,7 +9,7 @@ my $obj = WQS::SPARQL::Query::Count->new;
 
 my $property = 'P957';
 my $isbn = '80-239-7791-1';
-my $sparql = $obj->count_simple($property, $isbn);
+my $sparql = $obj->count_value($property, $isbn);
 
 print "Property: $property\n";
 print "ISBN: $isbn\n";

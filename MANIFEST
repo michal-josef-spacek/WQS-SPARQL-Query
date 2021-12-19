@@ -22,7 +22,7 @@ README
 t/WQS-SPARQL-Query-Count/01-use.t
 t/WQS-SPARQL-Query-Count/02-version.t
 t/WQS-SPARQL-Query-Count/03-new.t
-t/WQS-SPARQL-Query-Count/04-count_simple.t
+t/WQS-SPARQL-Query-Count/04-count_value.t
 t/WQS-SPARQL-Query-Select/01-use.t
 t/WQS-SPARQL-Query-Select/02-version.t
 t/WQS-SPARQL-Query-Select/03-new.t

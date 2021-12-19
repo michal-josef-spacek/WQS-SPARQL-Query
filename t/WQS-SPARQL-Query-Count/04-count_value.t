@@ -9,7 +9,7 @@ use WQS::SPARQL::Query::Count;
 my $obj = WQS::SPARQL::Query::Count->new;
 my $property = 'P957';
 my $isbn = '80-239-7791-1';
-my $sparql = $obj->count_simple($property, $isbn);
+my $sparql = $obj->count_value($property, $isbn);
 my $right_ret = <<"END";
 SELECT (COUNT(?item) as ?count) WHERE {
   ?item wdt:$property '$isbn'

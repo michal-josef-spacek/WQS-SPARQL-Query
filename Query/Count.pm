@@ -18,7 +18,7 @@ sub new {
 	return $self;
 }
 
-sub count_simple {
+sub count_value {
 	my ($self, $property, $value) = @_;
 
 	if ($property !~ m/^P\d+$/ms) {
@@ -51,7 +51,7 @@ WQS::SPARQL::Query::Count - Simple SPARQL count query.
  use WQS::SPARQL::Query::Count;
 
  my $obj = WQS::SPARQL::Query::Count->new;
- my $sparql = $obj->count_simple($property, $value);
+ my $sparql = $obj->count_value($property, $value);
 
 =head1 METHODS
 
@@ -63,9 +63,9 @@ Constructor.
 
 Returns instance of class.
 
-=head2 C<count_simple>
+=head2 C<count_value>
 
- my $sparql = $obj->count_simple($property, $value);
+ my $sparql = $obj->count_value($property, $value);
 
 Construct SPARQL command and return it.
 
@@ -77,7 +77,7 @@ Returns string.
          From Class::Utils::set_params():
                  Unknown parameter '%s'.
 
- count_simple():
+ count_value():
          Bad property '%s'.
 
 =head1 EXAMPLE
@@ -91,7 +91,7 @@ Returns string.
 
  my $property = 'P957';
  my $isbn = '80-239-7791-1';
- my $sparql = $obj->count_simple($property, $isbn);
+ my $sparql = $obj->count_value($property, $isbn);
 
  print "Property: $property\n";
  print "ISBN: $isbn\n";
