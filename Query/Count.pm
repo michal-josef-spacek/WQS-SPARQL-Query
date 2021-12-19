@@ -18,6 +18,25 @@ sub new {
 	return $self;
 }
 
+sub count_item {
+	my ($self, $property, $item) = @_;
+
+	if ($property !~ m/^P\d+$/ms) {
+		err "Bad property '$property'.";
+	}
+	if ($item !~ m/^Q\d+$/ms) {
+		err "Bad item '$item'.";
+	}
+
+	my $sparql = <<"END";
+SELECT (COUNT(?item) as ?count) WHERE {
+  ?item wdt:$property wd:$item
+}
+END
+
+	return $sparql;
+}
+
 sub count_value {
 	my ($self, $property, $value) = @_;
 
@@ -51,6 +70,7 @@ WQS::SPARQL::Query::Count - Simple SPARQL count query.
  use WQS::SPARQL::Query::Count;
 
  my $obj = WQS::SPARQL::Query::Count->new;
+ my $sparql = $obj->count_item($property, $item);
  my $sparql = $obj->count_value($property, $value);
 
 =head1 METHODS
@@ -62,6 +82,14 @@ WQS::SPARQL::Query::Count - Simple SPARQL count query.
 Constructor.
 
 Returns instance of class.
+
+=head2 C<count_item>
+
+ my $sparql = $obj->count_item($property, $item);
+
+Construct SPARQL command and return it.
+
+Returns string.
 
 =head2 C<count_value>
 
@@ -77,10 +105,40 @@ Returns string.
          From Class::Utils::set_params():
                  Unknown parameter '%s'.
 
+ count_item():
+         Bad item '%s'.
+         Bad property '%s'.
+
  count_value():
          Bad property '%s'.
 
-=head1 EXAMPLE
+=head1 EXAMPLE1
+
+ use strict;
+ use warnings;
+
+ use WQS::SPARQL::Query::Count;
+
+ my $obj = WQS::SPARQL::Query::Count->new;
+
+ my $property = 'P957';
+ my $item = 'Q62098524';
+ my $sparql = $obj->count_item($property, $item);
+
+ print "Property: $property\n";
+ print "Item: $item\n";
+ print "SPARQL:\n";
+ print $sparql;
+
+ # Output:
+ # Property: P957
+ # ISBN: 80-239-7791-1
+ # SPARQL:
+ # SELECT (COUNT(?item) as ?count) WHERE {
+ #   ?item wdt:P957 wd:Q62098524
+ # }
+
+=head1 EXAMPLE2
 
  use strict;
  use warnings;

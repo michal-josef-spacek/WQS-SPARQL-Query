@@ -1,5 +1,6 @@
 examples/ex1.pl
 examples/ex2.pl
+examples/ex3.pl
 inc/Module/Install.pm
 inc/Module/Install/AuthorRequires.pm
 inc/Module/Install/AuthorTests.pm
@@ -22,7 +23,8 @@ README
 t/WQS-SPARQL-Query-Count/01-use.t
 t/WQS-SPARQL-Query-Count/02-version.t
 t/WQS-SPARQL-Query-Count/03-new.t
-t/WQS-SPARQL-Query-Count/04-count_value.t
+t/WQS-SPARQL-Query-Count/04-count_item.t
+t/WQS-SPARQL-Query-Count/05-count_value.t
 t/WQS-SPARQL-Query-Select/01-use.t
 t/WQS-SPARQL-Query-Select/02-version.t
 t/WQS-SPARQL-Query-Select/03-new.t
