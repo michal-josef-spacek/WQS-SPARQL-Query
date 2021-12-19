@@ -3,9 +3,9 @@
 use strict;
 use warnings;
 
-use Wikibase::WQS::SPARQL::Query::Select;
+use WQS::SPARQL::Query::Select;
 
-my $obj = Wikibase::WQS::SPARQL::Query::Select->new;
+my $obj = WQS::SPARQL::Query::Select->new;
 
 my $property = 'P957';
 my $isbn = '80-239-7791-1';

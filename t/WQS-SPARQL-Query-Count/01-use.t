@@ -7,8 +7,8 @@ use Test::NoWarnings;
 BEGIN {
 
 	# Test.
-	use_ok('Wikibase::WQS::SPARQL::Query::Select');
+	use_ok('WQS::SPARQL::Query::Count');
 }
 
 # Test.
-require_ok('Wikibase::WQS::SPARQL::Query::Select');
+require_ok('WQS::SPARQL::Query::Count');

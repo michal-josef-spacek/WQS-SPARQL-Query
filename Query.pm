@@ -1,4 +1,4 @@
-package Wikibase::WQS::SPARQL::Query;
+package WQS::SPARQL::Query;
 
 use strict;
 use warnings;
@@ -15,25 +15,21 @@ __END__
 
 =head1 NAME
 
-Wikibase::WQS::SPARQL::Query - Useful Wikdata Query Service SPARQL queries.
-
-=head1 DESCRIPTION
-
-This distributions is set of datatypes for Wikibase.
+WQS::SPARQL::Query - Useful Wikdata Query Service SPARQL queries.
 
 =head1 SEE ALSO
 
 =over
 
-=item L<Wikibase::WQS::SPARQL::Query::Count>
+=item L<WQS::SPARQL::Query::Count>
 
-Simple SPARQL Wikibase count query.
+Simple SPARQL count query.
 
 =back
 
 =head1 REPOSITORY
 
-L<https://github.com/michal-josef-spacek/Wikibase-WQS-SPARQL-Query>
+L<https://github.com/michal-josef-spacek/WQS-SPARQL-Query>
 
 =head1 AUTHOR
 

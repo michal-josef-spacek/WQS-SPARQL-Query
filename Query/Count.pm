@@ -1,4 +1,4 @@
-package Wikibase::WQS::SPARQL::Query::Count;
+package WQS::SPARQL::Query::Count;
 
 use strict;
 use warnings;
@@ -44,20 +44,20 @@ __END__
 
 =head1 NAME
 
-Wikibase::WQS::SPARQL::Query::Count - Simple SPARQL Wikibase count query.
+WQS::SPARQL::Query::Count - Simple SPARQL count query.
 
 =head1 SYNOPSIS
 
- use Wikibase::WQS::SPARQL::Query::Count;
+ use WQS::SPARQL::Query::Count;
 
- my $obj = Wikibase::WQS::SPARQL::Query::Count->new;
+ my $obj = WQS::SPARQL::Query::Count->new;
  my $sparql = $obj->count_simple($property, $value);
 
 =head1 METHODS
 
 =head2 C<new>
 
- my $obj = Wikibase::WQS::SPARQL::Query::Count->new;
+ my $obj = WQS::SPARQL::Query::Count->new;
 
 Constructor.
 
@@ -85,9 +85,9 @@ Returns string.
  use strict;
  use warnings;
 
- use Wikibase::WQS::SPARQL::Query::Count;
+ use WQS::SPARQL::Query::Count;
 
- my $obj = Wikibase::WQS::SPARQL::Query::Count->new;
+ my $obj = WQS::SPARQL::Query::Count->new;
 
  my $property = 'P957';
  my $isbn = '80-239-7791-1';
@@ -115,7 +115,7 @@ L<Error::Pure>.
 
 =over
 
-=item L<Wikibase::WQS::SPARQL::Query>
+=item L<WQS::SPARQL::Query>
 
 Useful Wikdata Query Service SPARQL queries.
 
@@ -123,7 +123,7 @@ Useful Wikdata Query Service SPARQL queries.
 
 =head1 REPOSITORY
 
-L<https://github.com/michal-josef-spacek/Wikibase-WQS-SPARQL-Query>
+L<https://github.com/michal-josef-spacek/WQS-SPARQL-Query>
 
 =head1 AUTHOR
 

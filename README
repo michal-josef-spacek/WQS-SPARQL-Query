@@ -1,16 +1,12 @@
 NAME
-    Wikibase::WQS::SPARQL::Query - Useful Wikdata Query Service SPARQL
-    queries.
-
-DESCRIPTION
-    This distributions is set of datatypes for Wikibase.
+    WQS::SPARQL::Query - Useful Wikdata Query Service SPARQL queries.
 
 SEE ALSO
-    Wikibase::WQS::SPARQL::Query::Count
-        Simple SPARQL Wikibase count query.
+    WQS::SPARQL::Query::Count
+        Simple SPARQL count query.
 
 REPOSITORY
-    <https://github.com/michal-josef-spacek/Wikibase-WQS-SPARQL-Query>
+    <https://github.com/michal-josef-spacek/WQS-SPARQL-Query>
 
 AUTHOR
     Michal Josef Špaček <mailto:skim@cpan.org>

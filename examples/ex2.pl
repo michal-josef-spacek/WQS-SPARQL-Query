@@ -3,9 +3,9 @@
 use strict;
 use warnings;
 
-use Wikibase::WQS::SPARQL::Query::Count;
+use WQS::SPARQL::Query::Count;
 
-my $obj = Wikibase::WQS::SPARQL::Query::Count->new;
+my $obj = WQS::SPARQL::Query::Count->new;
 
 my $property = 'P957';
 my $isbn = '80-239-7791-1';
