@@ -9,7 +9,7 @@ use WQS::SPARQL::Query::Select;
 my $obj = WQS::SPARQL::Query::Select->new;
 my $property = 'P957';
 my $isbn = '80-239-7791-1';
-my $sparql = $obj->select_simple($property, $isbn);
+my $sparql = $obj->select_value($property, $isbn);
 my $right_ret = <<"END";
 SELECT ?item WHERE {
   ?item wdt:$property '$isbn'

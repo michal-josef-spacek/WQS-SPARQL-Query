@@ -18,7 +18,7 @@ sub new {
 	return $self;
 }
 
-sub select_simple {
+sub select_value {
 	my ($self, $property, $value) = @_;
 
 	if ($property !~ m/^P\d+$/ms) {
@@ -51,7 +51,7 @@ WQS::SPARQL::Query::Select - Simple SPARQL select query.
  use WQS::SPARQL::Query::Select;
 
  my $obj = WQS::SPARQL::Query::Select->new;
- my $sparql = $obj->select_simple($property, $value);
+ my $sparql = $obj->select_value($property, $value);
 
 =head1 METHODS
 
@@ -63,9 +63,9 @@ Constructor.
 
 Returns instance of class.
 
-=head2 C<select_simple>
+=head2 C<select_value>
 
- my $sparql = $obj->select_simple($property, $value);
+ my $sparql = $obj->select_value($property, $value);
 
 Construct SPARQL command and return it.
 
@@ -77,7 +77,7 @@ Returns string.
          From Class::Utils::set_params():
                  Unknown parameter '%s'.
 
- select_simple():
+ select_value():
          Bad property '%s'.
 
 =head1 EXAMPLE
@@ -91,7 +91,7 @@ Returns string.
 
  my $property = 'P957';
  my $isbn = '80-239-7791-1';
- my $sparql = $obj->select_simple($property, $isbn);
+ my $sparql = $obj->select_value($property, $isbn);
 
  print "Property: $property\n";
  print "ISBN: $isbn\n";
