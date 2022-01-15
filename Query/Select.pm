@@ -29,7 +29,7 @@ sub select_value {
 
 	my $sparql = "SELECT ?item WHERE {\n";
 	foreach my $property (sort keys %{$property_pairs_hr}) {
-		$sparql .= "  ?item wdt:$property '$property_pairs_hr->{$property}'\n"
+		$sparql .= "  ?item wdt:$property '$property_pairs_hr->{$property}'.\n"
 	}
 	$sparql .= "}\n";
 
@@ -106,7 +106,7 @@ Returns string.
  # ISBN: 80-239-7791-1
  # SPARQL:
  # SELECT ?item WHERE {
- #   ?item wdt:P957 '80-239-7791-1'
+ #   ?item wdt:P957 '80-239-7791-1'.
  # }
 
 =head1 DEPENDENCIES

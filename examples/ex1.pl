@@ -9,7 +9,7 @@ my $obj = WQS::SPARQL::Query::Select->new;
 
 my $property = 'P957';
 my $isbn = '80-239-7791-1';
-my $sparql = $obj->select_simple($property, $isbn);
+my $sparql = $obj->select_value({$property => $isbn});
 
 print "Property: $property\n";
 print "ISBN: $isbn\n";
@@ -21,5 +21,5 @@ print $sparql;
 # ISBN: 80-239-7791-1
 # SPARQL:
 # SELECT ?item WHERE {
-#   ?item wdt:P957 '80-239-7791-1'
+#   ?item wdt:P957 '80-239-7791-1'.
 # }

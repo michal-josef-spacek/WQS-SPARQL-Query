@@ -12,7 +12,7 @@ my $isbn = '80-239-7791-1';
 my $sparql = $obj->select_value({$property_isbn => $isbn});
 my $right_ret = <<"END";
 SELECT ?item WHERE {
-  ?item wdt:$property_isbn '$isbn'
+  ?item wdt:$property_isbn '$isbn'.
 }
 END
 is($sparql, $right_ret, 'SPARQL select query with one statement.');
@@ -28,8 +28,8 @@ $sparql = $obj->select_value({
 });
 $right_ret = <<"END";
 SELECT ?item WHERE {
-  ?item wdt:$property_instance '$instance'
-  ?item wdt:$property_isbn '$isbn'
+  ?item wdt:$property_instance '$instance'.
+  ?item wdt:$property_isbn '$isbn'.
 }
 END
 is($sparql, $right_ret, 'SPARQL select query with two statements.');
