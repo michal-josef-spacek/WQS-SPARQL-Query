@@ -19,17 +19,19 @@ sub new {
 }
 
 sub select_value {
-	my ($self, $property, $value) = @_;
+	my ($self, $property_pairs_hr) = @_;
 
-	if ($property !~ m/^P\d+$/ms) {
-		err "Bad property '$property'.";
+	foreach my $property (keys %{$property_pairs_hr}) {
+		if ($property !~ m/^P\d+$/ms) {
+			err "Bad property '$property'.";
+		}
 	}
 
-	my $sparql = <<"END";
-SELECT ?item WHERE {
-  ?item wdt:$property '$value'
-}
-END
+	my $sparql = "SELECT ?item WHERE {\n";
+	foreach my $property (sort keys %{$property_pairs_hr}) {
+		$sparql .= "  ?item wdt:$property '$property_pairs_hr->{$property}'\n"
+	}
+	$sparql .= "}\n";
 
 	return $sparql;
 }
@@ -51,7 +53,7 @@ WQS::SPARQL::Query::Select - Simple SPARQL select query.
  use WQS::SPARQL::Query::Select;
 
  my $obj = WQS::SPARQL::Query::Select->new;
- my $sparql = $obj->select_value($property, $value);
+ my $sparql = $obj->select_value($property_pairs_hr);
 
 =head1 METHODS
 
@@ -65,9 +67,10 @@ Returns instance of class.
 
 =head2 C<select_value>
 
- my $sparql = $obj->select_value($property, $value);
+ my $sparql = $obj->select_value($property_pairs_hr);
 
 Construct SPARQL command and return it.
+Input is reference to hash with pairs property => value.
 
 Returns string.
 
@@ -91,7 +94,7 @@ Returns string.
 
  my $property = 'P957';
  my $isbn = '80-239-7791-1';
- my $sparql = $obj->select_value($property, $isbn);
+ my $sparql = $obj->select_value({$property => $isbn});
 
  print "Property: $property\n";
  print "ISBN: $isbn\n";
