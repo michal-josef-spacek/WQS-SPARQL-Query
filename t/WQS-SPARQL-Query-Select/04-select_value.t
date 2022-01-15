@@ -28,7 +28,7 @@ $sparql = $obj->select_value({
 });
 $right_ret = <<"END";
 SELECT ?item WHERE {
-  ?item wdt:$property_instance '$instance'.
+  ?item wdt:$property_instance wd:$instance.
   ?item wdt:$property_isbn '$isbn'.
 }
 END

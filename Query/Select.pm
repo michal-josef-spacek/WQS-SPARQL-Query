@@ -29,7 +29,13 @@ sub select_value {
 
 	my $sparql = "SELECT ?item WHERE {\n";
 	foreach my $property (sort keys %{$property_pairs_hr}) {
-		$sparql .= "  ?item wdt:$property '$property_pairs_hr->{$property}'.\n"
+		my $value = $property_pairs_hr->{$property};
+		if ($value =~ m/^Q\d+$/ms) {
+			$value = "wd:$value";
+		} else {
+			$value = "'$value'";
+		}
+		$sparql .= "  ?item wdt:$property $value.\n"
 	}
 	$sparql .= "}\n";
 
