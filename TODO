@@ -3,7 +3,8 @@ TODO
 1. Add 'or' and 'and' to count.
 2. Add 'or' and 'and' to select.
 3. Add subclass.
-4.
+4. Improve sort properties in SPARQL command: P31 < P1444
+5.
 
 Applied
 =======
