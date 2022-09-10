@@ -34,6 +34,8 @@ sub select_value {
 		my $value = $property_pairs_hr->{$property};
 		if ($value =~ m/^Q\d+$/ms) {
 			$value = "wd:$value";
+		} elsif ($value =~ m/^(.*?)(@\w\w)$/ms) {
+			$value = "'$1'$2";
 		} else {
 			$value = "'$value'";
 		}
@@ -79,6 +81,32 @@ Returns instance of class.
 
 Construct SPARQL command and return it.
 Input is reference to hash with pairs property => value.
+
+Value could be in forms:
+
+=over
+
+=item * Q__number__
+
+QID identifier.
+
+Example output: Q42
+
+=item * __string__@__lang__
+
+String with language.
+
+'lang' is 2 character language code.
+
+Example output: 'string'@en
+
+=item * __string__
+
+String without language.
+
+Example output: 'string'
+
+=back
 
 Returns string.
 

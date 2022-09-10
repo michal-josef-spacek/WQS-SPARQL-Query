@@ -1,7 +1,7 @@
 use strict;
 use warnings;
 
-use Test::More 'tests' => 3;
+use Test::More 'tests' => 4;
 use Test::NoWarnings;
 use WQS::SPARQL::Query::Select;
 
@@ -33,3 +33,21 @@ SELECT ?item WHERE {
 }
 END
 is($sparql, $right_ret, 'SPARQL select query with two statements.');
+
+# Test.
+$property_instance = 'P31';
+$instance = 'Q2085381';
+my $property_official_name = 'P1448';
+my $official_name = 'LIBRI, spol. s r.o.';
+my $official_name_lang = 'cs';
+$sparql = $obj->select_value({
+	$property_instance => $instance,
+	$property_official_name => $official_name.'@'.$official_name_lang,
+});
+$right_ret = <<"END";
+SELECT ?item WHERE {
+  ?item wdt:$property_instance wd:$instance.
+  ?item wdt:$property_official_name '$official_name'\@$official_name_lang.
+}
+END
+is($sparql, $right_ret, 'SPARQL select query with multilingual text.');
