@@ -3,7 +3,7 @@ use warnings;
 
 use English;
 use Error::Pure::Utils qw(clean);
-use Test::More 'tests' => 5;
+use Test::More 'tests' => 6;
 use Test::NoWarnings;
 use WQS::SPARQL::Query::Select;
 
@@ -53,6 +53,20 @@ SELECT ?item WHERE {
 }
 END
 is($sparql, $right_ret, 'SPARQL select query with multilingual text.');
+
+# Test.
+$property_instance = 'P31';
+my $subclass_instance = 'P279*';
+$instance = 'Q2085381';
+$sparql = $obj->select_value({
+	$property_instance.'/'.$subclass_instance => $instance,
+});
+$right_ret = <<"END";
+SELECT ?item WHERE {
+  ?item wdt:$property_instance/wdt:$subclass_instance wd:$instance.
+}
+END
+is($sparql, $right_ret, 'SPARQL select query with subclass.');
 
 # Test.
 $property_instance = 'bad';

@@ -21,16 +21,16 @@ sub new {
 sub select_value {
 	my ($self, $property_pairs_hr) = @_;
 
+	my %sort;
 	foreach my $property (keys %{$property_pairs_hr}) {
-		if ($property !~ m/^P\d+$/ms) {
+		if ($property !~ m/^P(\d+)(\/P\d+\*?)?$/ms) {
 			err "Bad property '$property'.";
 		}
+		$sort{$property} = $1;
 	}
 
 	my $sparql = "SELECT ?item WHERE {\n";
-	foreach my $property (sort { substr($a, 1) <=> substr($b, 1) }
-		keys %{$property_pairs_hr}) {
-
+	foreach my $property (sort { $sort{$a} <=> $sort{$b} } keys %{$property_pairs_hr}) {
 		my $property_wdt = $self->_property($property);
 
 		my $value = $property_pairs_hr->{$property};
@@ -41,6 +41,7 @@ sub select_value {
 		} else {
 			$value = "'$value'";
 		}
+
 		$sparql .= "  ?item $property_wdt $value.\n"
 	}
 	$sparql .= "}\n";
@@ -54,6 +55,8 @@ sub _property {
 	my $property_wdt;
 	if ($property_key =~ m/^P\d+$/ms) {
 		$property_wdt = 'wdt:'.$property_key;
+	} elsif ($property_key =~ m/^(P\d+)\/(P\d+\*?)$/ms) {
+		$property_wdt = 'wdt:'.$1.'/wdt:'.$2;
 	} else {
 		err "Property doesn't supported.",
 			'property_key', $property_key,
