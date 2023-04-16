@@ -1,7 +1,9 @@
 use strict;
 use warnings;
 
-use Test::More 'tests' => 4;
+use English;
+use Error::Pure::Utils qw(clean);
+use Test::More 'tests' => 5;
 use Test::NoWarnings;
 use WQS::SPARQL::Query::Select;
 
@@ -51,3 +53,14 @@ SELECT ?item WHERE {
 }
 END
 is($sparql, $right_ret, 'SPARQL select query with multilingual text.');
+
+# Test.
+$property_instance = 'bad';
+$instance = 'Q2085381';
+eval {
+	$obj->select_value({
+		$property_instance => $instance,
+	});
+};
+is($EVAL_ERROR, "Bad property 'bad'.\n", "Bad property 'bad'.");
+clean();

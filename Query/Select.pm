@@ -31,6 +31,8 @@ sub select_value {
 	foreach my $property (sort { substr($a, 1) <=> substr($b, 1) }
 		keys %{$property_pairs_hr}) {
 
+		my $property_wdt = $self->_property($property);
+
 		my $value = $property_pairs_hr->{$property};
 		if ($value =~ m/^Q\d+$/ms) {
 			$value = "wd:$value";
@@ -39,11 +41,26 @@ sub select_value {
 		} else {
 			$value = "'$value'";
 		}
-		$sparql .= "  ?item wdt:$property $value.\n"
+		$sparql .= "  ?item $property_wdt $value.\n"
 	}
 	$sparql .= "}\n";
 
 	return $sparql;
+}
+
+sub _property {
+	my ($self, $property_key) = @_;
+
+	my $property_wdt;
+	if ($property_key =~ m/^P\d+$/ms) {
+		$property_wdt = 'wdt:'.$property_key;
+	} else {
+		err "Property doesn't supported.",
+			'property_key', $property_key,
+		;
+	}
+
+	return $property_wdt;
 }
 
 1;
