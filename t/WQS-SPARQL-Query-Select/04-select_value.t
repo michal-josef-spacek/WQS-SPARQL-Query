@@ -3,7 +3,7 @@ use warnings;
 
 use English;
 use Error::Pure::Utils qw(clean);
-use Test::More 'tests' => 6;
+use Test::More 'tests' => 7;
 use Test::NoWarnings;
 use WQS::SPARQL::Query::Select;
 
@@ -78,3 +78,20 @@ eval {
 };
 is($EVAL_ERROR, "Bad property 'bad'.\n", "Bad property 'bad'.");
 clean();
+
+# Test.
+$obj = WQS::SPARQL::Query::Select->new;
+$property_isbn = 'P957';
+my $foo = '?foo';
+$sparql = $obj->select_value({
+	$property_isbn => $foo,
+}, [
+	['?foo', '==', "'bar'"],
+]);
+$right_ret = <<"END";
+SELECT ?item WHERE {
+  ?item wdt:$property_isbn ?foo.
+  FILTER(?foo == 'bar')
+}
+END
+is($sparql, $right_ret, 'SPARQL select query with one statement.');

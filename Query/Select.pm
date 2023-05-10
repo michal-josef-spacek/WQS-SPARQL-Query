@@ -19,7 +19,7 @@ sub new {
 }
 
 sub select_value {
-	my ($self, $property_pairs_hr) = @_;
+	my ($self, $property_pairs_hr, $filter_ar) = @_;
 
 	my %sort;
 	foreach my $property (keys %{$property_pairs_hr}) {
@@ -36,6 +36,8 @@ sub select_value {
 		my $value = $property_pairs_hr->{$property};
 		if ($value =~ m/^Q\d+$/ms) {
 			$value = "wd:$value";
+		} elsif ($value =~ m/^\?/ms) {
+			# same
 		} elsif ($value =~ m/^(.*?)(@\w\w)$/ms) {
 			$value = "'$1'$2";
 		} else {
@@ -43,6 +45,9 @@ sub select_value {
 		}
 
 		$sparql .= "  ?item $property_wdt $value.\n"
+	}
+	foreach my $filter_item_ar (@{$filter_ar}) {
+		$sparql .= '  FILTER('.$filter_item_ar->[0].' '.$filter_item_ar->[1].' '.$filter_item_ar->[2].')'."\n";
 	}
 	$sparql .= "}\n";
 

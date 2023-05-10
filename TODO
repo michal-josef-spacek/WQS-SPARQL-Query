@@ -3,10 +3,6 @@ TODO
 1. Add 'or' and 'and' to count.
 2. Add 'or' and 'and' to select.
 5. Add subclass to count
-6. Implement filter: 
-Definition ref to array with triplet.
-Example:
-FILTER( ?inception <= "1969-31-12T00:00:00"^^xsd:dateTime )
 7.
 
 Applied
@@ -16,3 +12,9 @@ OK [20220116] skim
 
 3. Add subclass.
 OK [20230416] skim
+
+6. Implement filter:
+Definition ref to array with triplet.
+Example:
+FILTER( ?inception <= "1969-31-12T00:00:00"^^xsd:dateTime )
+OK [20230429] skim
