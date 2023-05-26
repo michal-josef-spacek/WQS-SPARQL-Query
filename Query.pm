@@ -25,6 +25,10 @@ WQS::SPARQL::Query - Useful Wikdata Query Service SPARQL queries.
 
 Simple SPARQL count query.
 
+=item L<WQS::SPARQL::Query::Select>
+
+Simple SPARQL select query.
+
 =back
 
 =head1 REPOSITORY
