@@ -21,6 +21,7 @@ Query.pm
 Query/Count.pm
 Query/Select.pm
 README
+SIGNATURE
 t/WQS-SPARQL-Query-Count/01-use.t
 t/WQS-SPARQL-Query-Count/02-version.t
 t/WQS-SPARQL-Query-Count/03-new.t
