@@ -177,6 +177,10 @@ L<Error::Pure>.
 
 Useful Wikdata Query Service SPARQL queries.
 
+=item L<WQS::SPARQL::Query::Select>
+
+Simple SPARQL select query.
+
 =back
 
 =head1 REPOSITORY

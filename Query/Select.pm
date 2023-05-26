@@ -183,6 +183,10 @@ L<Error::Pure>.
 
 Useful Wikdata Query Service SPARQL queries.
 
+=item L<WQS::SPARQL::Query::Count>
+
+Simple SPARQL count query.
+
 =back
 
 =head1 REPOSITORY
