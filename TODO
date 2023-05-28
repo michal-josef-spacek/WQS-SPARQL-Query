@@ -3,7 +3,8 @@ TODO
 1. Add 'or' and 'and' to count.
 2. Add 'or' and 'and' to select.
 5. Add subclass to count
-7.
+7. Multiples items in query like given name in Q27954834 (Michal Josef Špaček)
+8.
 
 Applied
 =======
