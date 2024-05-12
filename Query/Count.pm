@@ -6,6 +6,8 @@ use warnings;
 use Class::Utils qw(set_params);
 use Error::Pure qw(err);
 
+our $VERSION = 0.02;
+
 sub new {
 	my ($class, @params) = @_;
 
