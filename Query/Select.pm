@@ -62,12 +62,9 @@ sub _property {
 	my $property_wdt;
 	if ($property_key =~ m/^P\d+$/ms) {
 		$property_wdt = 'wdt:'.$property_key;
-	} elsif ($property_key =~ m/^(P\d+)\/(P\d+\*?)$/ms) {
-		$property_wdt = 'wdt:'.$1.'/wdt:'.$2;
 	} else {
-		err "Property doesn't supported.",
-			'property_key', $property_key,
-		;
+		my ($p1, $p2) = ($property_key =~ m/^(P\d+)\/(P\d+\*?)$/ms);
+		$property_wdt = 'wdt:'.$p1.'/wdt:'.$p2;
 	}
 
 	return $property_wdt;
