@@ -46,6 +46,7 @@ sub count_value {
 		err "Bad property '$property'.";
 	}
 
+	$value =~ s/'/\\'/msg;
 	my $sparql = <<"END";
 SELECT (COUNT(?item) as ?count) WHERE {
   ?item wdt:$property '$value'
